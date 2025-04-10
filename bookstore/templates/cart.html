@@ -1,0 +1,38 @@
+{% load static %}
+
+<h2>Cart</h2>
+{% for book in books %}
+  <div>
+    <h3>{{ book.title }}</h3>
+    <p>${{ book.price }}</p>
+  </div>
+{% endfor %}
+<a href="{% url 'home' %}">← Back to Books</a>
+
+<h2><img src="{% static 'images/cart.png' %}" alt="Cart" width="40"> Your Cart</h2>
+<ul class="cart-list">
+  {% for item in cart_items %}
+    <li>{{ item.title }} - ₹{{ item.price }}</li>
+  {% endfor %}
+</ul>
+
+<a id="back-btn" class="button">← Back</a>
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<h1>Your Cart</h1>
+<ul class="cart-list">
+  {% for book in books %}
+    <li>{{ book.title }} - ₹{{ book.price }}</li>
+  {% endfor %}
+</ul>
+<a href="{% url 'home' %}" class="button" id="back-btn">← Back to Book List</a>
+<script src="{% static 'js/main.js' %}"></script>
+
+<h2>Your Cart</h2>
+{% for book in books %}
+  <p>{{ book.title }} - ₹{{ book.price }}</p>
+{% endfor %}
+
+<a href="{% url 'home' %}" class="button">← Back to Book List</a>

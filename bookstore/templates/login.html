@@ -1,0 +1,60 @@
+{% load static %}
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+
+<div class="container">
+    <h2><img src="{% static 'images/user.png' %}" alt="User" width="40"> Login</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label>Username:</label><br>
+      <input type="text" name="username"><br>
+      <label>Password:</label><br>
+      <input type="password" name="password"><br><br>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+  
+
+  {% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
+
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Login</button>
+  </form>
+  
+
+  {% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<div class="container">
+    <h2><img src="{% static 'images/user.png' %}" alt="User" width="40"> Login</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+
+    <p>Don’t have an account? <a href="/admin">Register via Admin</a></p>
+</div>
+</body>
+</html>

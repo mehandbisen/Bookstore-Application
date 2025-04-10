@@ -1,0 +1,46 @@
+{% load static %}
+
+<h2>Books</h2>
+{% for book in books %}
+  <div>
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.description }}</p>
+    <p>Price: ${{ book.price }}</p>
+    <a href="{% url 'add_to_cart' book.id %}">Add to cart</a>
+  </div>
+{% endfor %}
+<a href="{% url 'cart' %}">View Cart</a>
+
+{% for book in books %}
+  <div class="book">
+    <img src="{% static 'images/book.png' %}" alt="Book" width="50">
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.author }}</p>
+    <p>{{ book.price }} ₹</p>
+    <form method="post" action="{% url 'add_to_cart' book.id %}">
+        {% csrf_token %}
+        <button type="submit">Add to Cart</button>
+    </form>
+  </div>
+{% endfor %}
+
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<h1>Available Books</h1>
+{% for book in books %}
+  <div class="book">
+    <h3>{{ book.title }}</h3>
+    <p>{{ book.description }}</p>
+    <p>Price: ₹{{ book.price }}</p>
+    <a href="{% url 'add_to_cart' book.id %}" class="button">Add to Cart</a>
+  </div>
+{% endfor %}
+<a href="{% url 'cart' %}" class="button">Go to Cart</a>
+
+{% for book in books %}
+  <h3>{{ book.title }}</h3>
+  <p>{{ book.description }}</p>
+  <a href="{% url 'add_to_cart' book.id %}">Add to Cart</a>
+{% endfor %}
+<a href="{% url 'cart' %}">Go to Cart</a>
